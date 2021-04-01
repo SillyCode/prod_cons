@@ -51,3 +51,7 @@ The volume content can be seen in the following directory:
 
 ## Removing volume
 ```docker volume rm <volumename>```
+
+
+* Note that the producer/consumer utilities were not the main objective of this example.
+* Hence, they can probably be optimized 
