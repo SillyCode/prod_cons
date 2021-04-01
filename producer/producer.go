@@ -7,10 +7,10 @@ import (
 	"os"
 )
 
-const FILEPATH = "./data/messages.txt"
+const FILEPATH = "/app/messages.txt"
 
 func write_to_file(message string) {
-	file_handler, err := os.OpenFile(FILEPATH, os.O_APPEND, 0666)
+	file_handler, err := os.OpenFile(FILEPATH, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0666)
 	if err != nil {
 		panic(err)
 	}

@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-const FILEPATH = "./data/messages.txt"
+const FILEPATH = "/app/messages.txt"
 
 func read_from_file(offset int64) int64 {
 	f, e := os.Open(FILEPATH)
