@@ -5,6 +5,6 @@ RUN go get -d -v ./
 
 RUN go build -o /go/bin/producer
 
-WORKDIR /go/bin/producer
+WORKDIR /go/bin
 
 ENTRYPOINT ["/go/bin/producer"]

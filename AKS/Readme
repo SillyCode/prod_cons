@@ -1,0 +1,51 @@
+#### AKS
+
+Persistent volumes on Kubernetes via AKS
+
+Reference:
+`https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv`
+
+#### Built-in storage classes
+`kubectl get sc`
+
+Example output:
+
+```NAME                PROVISIONER                AGE
+default (default)   kubernetes.io/azure-disk   1h
+managed-premium     kubernetes.io/azure-disk   1h```
+
+#### Verify namespace ####
+
+Before creating a persistent storage claim. Make sure you are using the correct namespace
+as the pvc must be created on the same namespaces as the pods.
+
+To see which name space is used. Run the following command (empty = defualt namespace):
+`kubectl config view | grep namespace`
+
+To switch to a different namespace use the command below:
+`kubectl config set-context --current --namespace=<myNamespace>`
+
+#### Create a persistent volume storage (pvc)
+apply the `storage.yaml` file to make the storage
+
+Apply the storage:
+`kubectl apply -f storage.yaml`
+
+*Note the status of the storage will be pending until a pod will use it.
+
+#### Inspect persistent volume (pvc)
+`kubectl get pvc`
+
+#### Use the persistent volume
+Create a producer pod. Use the `producer_pod.yaml` file.
+
+Run the following to apply:
+`kubectl apply -f producer_pod.yaml`
+
+Create a consumer pod. Use the `consumer_pod.yaml` file.
+
+Run the following to apply:
+`kubectl apply -f producer_pod.yaml`
+
+You now have a running pod with your Azure disk mounted in the `/app` directory.
+This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
