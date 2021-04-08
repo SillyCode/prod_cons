@@ -14,6 +14,18 @@ Example output:
 default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h```
 
+#### Verify the namespace ####
+Before creating a PVC. Make sure that the PVC will be created on the same namespace as the pods
+
+To list all the namespaces:
+`kubectl get namespaces`
+
+To see which name space is used. Run the following command (empty = defualt namespace):
+`kubectl config view | grep namespace`
+
+To switch to a different namespace use the command below:
+`kubectl config set-context --current --namespace=<myNamespace>`
+
 #### Create a persistent volume claim (PVC)
 Persistent volume claim (PVC) dynamically allocates a persistent volume (PV)
 This is how it looks like:
