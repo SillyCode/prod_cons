@@ -10,7 +10,7 @@ Where `messageVolume` is the name of our volume
 # Producer Section
 
 # Build 'producer' image
-```docker build --rm -f Dockerfile.producer --rm -t golang-producer:v1 .```
+```docker build --rm -f Dockerfile.producer -t golang-producer:v1 .```
 
 # Run 'producer' container with mounted volume
 ```docker run -dit --name="golang-producer" --mount source=messagesVolume,destination=/app golang-producer:v1```
@@ -27,7 +27,7 @@ Execute the producer
 # Consumer Section
 
 # Build 'consumer' image
-```docker build --rm -f Dockerfile.consumer --rm -t golang-consumer:v1 .```
+```docker build --rm -f Dockerfile.consumer -t golang-consumer:v1 .```
 
 # Run 'consumer' container with mounted volume
 ```docker run -dit --name="golang-consumer" --mount source=messagesVolume,destination=/app golang-consumer:v1```
