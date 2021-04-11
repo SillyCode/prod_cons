@@ -10,9 +10,11 @@ Reference:
 
 Example output:
 
-```NAME                PROVISIONER                AGE
+```
+NAME                PROVISIONER                AGE
 default (default)   kubernetes.io/azure-disk   1h
-managed-premium     kubernetes.io/azure-disk   1h```
+managed-premium     kubernetes.io/azure-disk   1h
+```
 
 #### Verify the namespace ####
 Before creating a PVC. Make sure that the PVC will be created on the same namespace as the pods
