@@ -14,7 +14,7 @@ const FILEPATH = "/app/messages.txt"
 func read_from_file(offset int64) int64 {
 	f, e := os.Open(FILEPATH)
 	if e != nil {
-		panic(e)
+		return 0
 	}
 
 	defer f.Close()
